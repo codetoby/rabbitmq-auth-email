@@ -41,5 +41,4 @@ public class AuthenticationController {
             return ResponseEntity.status(500).body(new ApiResponse(false, "Error during registration: " + e.getMessage(), 500));
         }
     }
-
 }
