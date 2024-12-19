@@ -1,4 +1,4 @@
-package com.tlm.constants.rabbitmq;
+package com.tlm.core.constants.rabbitmq;
 
 public class RabbitMQConstants {
 

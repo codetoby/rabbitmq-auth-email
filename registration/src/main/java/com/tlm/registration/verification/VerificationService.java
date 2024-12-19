@@ -4,13 +4,15 @@ import java.util.Date;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.tlm.user.User;
+import com.tlm.core.user.User;
 
+@Service
 public class VerificationService implements IVerficationService {
 
     @Autowired
-    private VerificationRepository verificationRepository;
+    private IVerificationRepository verificationRepository;
 
     @Override
     public VerificationToken save(VerificationToken token) {

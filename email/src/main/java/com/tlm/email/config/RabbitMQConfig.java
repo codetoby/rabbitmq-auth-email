@@ -1,13 +1,15 @@
-package com.tlm.config;
+package com.tlm.email.config;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.tlm.constants.rabbitmq.RabbitMQConstants;
+import com.tlm.core.constants.rabbitmq.RabbitMQConstants;
 
 @Configuration
 public class RabbitMQConfig {
@@ -28,16 +30,25 @@ public class RabbitMQConfig {
     }
 
     @Bean
-    public Binding verificationRequestBinding(Queue verificationRequestQueue, DirectExchange exchange) {
+    public Binding verificationRequestBinding(
+            @Qualifier("verificationRequestQueue") Queue verificationRequestQueue, 
+            DirectExchange exchange) {
         return BindingBuilder.bind(verificationRequestQueue)
                 .to(exchange)
                 .with(RabbitMQConstants.VERIFICATION_REQUEST_KEY);
     }
 
     @Bean
-    public Binding accountCreatedBinding(Queue accountCreatedQueue, DirectExchange exchange) {
+    public Binding accountCreatedBinding(
+            @Qualifier("accountCreatedQueue") Queue accountCreatedQueue, 
+            DirectExchange exchange) {
         return BindingBuilder.bind(accountCreatedQueue)
                 .to(exchange)
                 .with(RabbitMQConstants.ACCOUNT_CREATION_KEY);
+    }
+
+    @Bean
+    public Jackson2JsonMessageConverter messageConverter() {
+        return new Jackson2JsonMessageConverter();
     }
 }

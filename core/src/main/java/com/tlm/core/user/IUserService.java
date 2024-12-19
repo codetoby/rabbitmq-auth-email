@@ -1,7 +1,10 @@
-package com.tlm.user;
+package com.tlm.core.user;
 
-import com.tlm.dto.UserRequestDTO;
+import org.springframework.stereotype.Component;
 
+import com.tlm.core.dto.UserRequestDTO;
+
+@Component
 public interface IUserService {
     User save(User user);
     User findByUsername(String username);

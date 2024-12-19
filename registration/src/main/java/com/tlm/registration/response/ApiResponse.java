@@ -5,10 +5,12 @@ import org.springframework.http.HttpStatusCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 public class ApiResponse {
 
     private boolean success;

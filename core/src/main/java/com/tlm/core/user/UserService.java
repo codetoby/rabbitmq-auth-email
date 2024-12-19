@@ -1,9 +1,9 @@
-package com.tlm.user;
+package com.tlm.core.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tlm.dto.UserRequestDTO;
+import com.tlm.core.dto.UserRequestDTO;
 
 @Service
 public class UserService implements IUserService{
@@ -37,7 +37,7 @@ public class UserService implements IUserService{
         user.setUsername(userRequest.getUsername());
         user.setEmail(userRequest.getEmail());
         user.setPassword(userRequest.getPassword());
-        return user;
+        return save(user);
     }
 
     @Override

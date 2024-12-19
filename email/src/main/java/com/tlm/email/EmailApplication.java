@@ -1,11 +1,11 @@
-package com.tlm;
+package com.tlm.email;
 
 import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.tlm.consumer.RabitMQConsumer;
+import com.tlm.email.consumer.RabitMQConsumer;
 
 @SpringBootApplication
 public class EmailApplication {

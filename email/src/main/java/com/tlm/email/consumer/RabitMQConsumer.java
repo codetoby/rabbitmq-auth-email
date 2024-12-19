@@ -1,4 +1,4 @@
-package com.tlm.consumer;
+package com.tlm.email.consumer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,10 +6,10 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.tlm.constants.rabbitmq.RabbitMQConstants;
-import com.tlm.dto.UserDTO;
-import com.tlm.dto.VerificationRequestDTO;
-import com.tlm.email.IEmailService;
+import com.tlm.core.constants.rabbitmq.RabbitMQConstants;
+import com.tlm.core.dto.UserDTO;
+import com.tlm.core.dto.VerificationRequestDTO;
+import com.tlm.email.services.IEmailService;
 
 @Component
 public class RabitMQConsumer {

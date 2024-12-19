@@ -1,7 +1,7 @@
-package com.tlm.email;
+package com.tlm.email.services;
 
-import com.tlm.dto.UserDTO;
-import com.tlm.dto.VerificationRequestDTO;
+import com.tlm.core.dto.UserDTO;
+import com.tlm.core.dto.VerificationRequestDTO;
 
 public interface IEmailService {
     boolean sendVerificationEmail(VerificationRequestDTO userDTO);

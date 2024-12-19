@@ -2,7 +2,7 @@ package com.tlm.registration.registration;
 
 import org.springframework.context.ApplicationEvent;
 
-import com.tlm.user.User;
+import com.tlm.core.user.User;
 
 import lombok.Getter;
 import lombok.Setter;

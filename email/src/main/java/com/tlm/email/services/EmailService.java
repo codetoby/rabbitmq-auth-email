@@ -1,8 +1,11 @@
-package com.tlm.email;
+package com.tlm.email.services;
 
-import com.tlm.dto.UserDTO;
-import com.tlm.dto.VerificationRequestDTO;
+import org.springframework.stereotype.Service;
 
+import com.tlm.core.dto.UserDTO;
+import com.tlm.core.dto.VerificationRequestDTO;
+
+@Service
 public class EmailService implements IEmailService {
 
     @Override

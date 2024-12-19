@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tlm.dto.UserRequestDTO;
+import com.tlm.core.dto.UserRequestDTO;
+import com.tlm.core.user.IUserService;
+import com.tlm.core.user.User;
 import com.tlm.registration.registration.OnRegistrationCompleteEvent;
 import com.tlm.registration.response.ApiResponse;
-import com.tlm.user.IUserService;
-import com.tlm.user.User;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
@@ -32,8 +32,10 @@ public class AuthenticationController {
             @Valid @RequestBody UserRequestDTO user,
             HttpServletRequest request) {
         try {
+            System.out.println("Registering user: " + user);
             User savedUser = userService.createUser(user);
             String appUrl = request.getContextPath();
+            System.out.println("User created: " + savedUser);
             applicationEventPublisher.publishEvent(
                 new OnRegistrationCompleteEvent(savedUser, appUrl));
             return ResponseEntity.ok(new ApiResponse(true, "User registered successfully", 200));

@@ -3,10 +3,12 @@ package com.tlm.registration.registration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Component;
 
-import com.tlm.dto.UserDTO;
+import com.tlm.core.dto.UserDTO;
 import com.tlm.registration.producer.RabbitMQProducer;
 
+@Component
 public class AccountCreationEventListener implements ApplicationListener<OnAccountCreatedEvent> {
 
     @Autowired
