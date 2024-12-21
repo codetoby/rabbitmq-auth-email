@@ -32,15 +32,13 @@ public class AuthenticationController {
             @Valid @RequestBody UserRequestDTO user,
             HttpServletRequest request) {
         try {
-            System.out.println("Registering user: " + user);
             User savedUser = userService.createUser(user);
             String appUrl = request.getContextPath();
-            System.out.println("User created: " + savedUser);
             applicationEventPublisher.publishEvent(
                 new OnRegistrationCompleteEvent(savedUser, appUrl));
             return ResponseEntity.ok(new ApiResponse(true, "User registered successfully", 200));
         } catch (Exception e) {
-            return ResponseEntity.status(500).body(new ApiResponse(false, "Error during registration: " + e.getMessage(), 500));
+            return ResponseEntity.internalServerError().body(new ApiResponse(false, "Error during registration: " + e.getMessage(), 500));
         }
     }
 }

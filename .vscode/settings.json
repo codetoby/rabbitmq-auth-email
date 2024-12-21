@@ -1,4 +1,7 @@
 {
     "java.configuration.updateBuildConfiguration": "interactive",
-    "java.jdt.ls.lombokSupport.enabled": true
+    "java.jdt.ls.lombokSupport.enabled": true,
+    "java.project.explorer.showNonJavaResources": false,
+    "java.dependency.packagePresentation": "flat",
+    "java.dependency.syncWithFolderExplorer": false
 }

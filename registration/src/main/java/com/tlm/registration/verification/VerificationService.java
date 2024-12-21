@@ -24,11 +24,6 @@ public class VerificationService implements IVerficationService {
         return verificationRepository.findByToken(token);
     }
 
-    @Override
-    public VerificationToken findByUser(Long id) {
-        return verificationRepository.findById(id).orElse(null);
-    }
-
     public VerificationToken createToken(User user) {
         String token = generateToken();
         VerificationToken verificationToken = new VerificationToken(token, user);

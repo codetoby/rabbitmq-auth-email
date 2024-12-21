@@ -29,7 +29,6 @@ public class RegistrationEventListener implements ApplicationListener<OnRegistra
         VerificationToken token = verificationService.createToken(event.getUser());
 
         String confirmUrl = event.getAppUrl() + "/verify?token=" + token.getToken();
-        System.out.println("Confirm URL: " + confirmUrl);
         VerificationRequestDTO verificationRequestDTO = new VerificationRequestDTO(
                 confirmUrl,
                 event.getUser().getEmail(),

@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,6 +21,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@EqualsAndHashCode
 public class User {
 
     @Id
@@ -38,6 +40,13 @@ public class User {
         this.username = username;
         this.password = password;
         this.isVerified = false;
+    }
+
+    public User(Long id, String email, String username, boolean isVerified) {
+        this.id = id;
+        this.email = email;
+        this.username = username;
+        this.isVerified = isVerified;
     }
 
 }

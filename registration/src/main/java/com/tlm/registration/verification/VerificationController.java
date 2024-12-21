@@ -1,4 +1,4 @@
-package com.tlm.registration.authentication;
+package com.tlm.registration.verification;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,8 +13,6 @@ import com.tlm.core.user.IUserService;
 import com.tlm.core.user.User;
 import com.tlm.registration.registration.OnAccountCreatedEvent;
 import com.tlm.registration.response.ApiResponse;
-import com.tlm.registration.verification.IVerficationService;
-import com.tlm.registration.verification.VerificationTokenException;
 
 @RestController
 public class VerificationController {
@@ -29,7 +27,6 @@ public class VerificationController {
 
     @Autowired
     private ApplicationEventPublisher applicationEventPublisher;
-
 
     @RequestMapping("/verify")
     public ResponseEntity<?> verify(@RequestParam("token") String token) {
